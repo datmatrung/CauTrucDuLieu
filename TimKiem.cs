@@ -1,6 +1,8 @@
-        static int[] NhapMang(int n)
+        static int[] NhapMang()
         {
             int[] A;
+            Console.Write("Nhap so phan tu: ");
+            int n = int.Parse(Console.ReadLine());
             A = new int[n];
             for (int i = 0; i < n; i++)
             {
@@ -45,9 +47,7 @@
         static void Main(string[] args)
         {
             int[] A;
-            Console.Write("Nhap so phan tu: ");
-            int n = int.Parse(Console.ReadLine());
-            A = NhapMang(n);
+            A = NhapMang();
             Console.Write("Nhap phan tu can tim: ");
             int x = int.Parse(Console.ReadLine());
             int i = TimKiemTuanTuVetCan(A, n, x);
