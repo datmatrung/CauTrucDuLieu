@@ -1,7 +1,7 @@
         static int[] NhapMang(int n)
         {
             int[] A;
-            A = new int[n];
+            A = new int[n + 1];
             for (int i = 0; i < n; i++)
             {
                 Console.Write($"Nhap A[{i}]: ");
@@ -21,7 +21,7 @@
         }
         static int TimKiemTuanTuLinhCanh(int[] A, int n, int x)
         {
-            A[n - 1] = x;
+            A[n] = x;
             int i = 0;
             while (x != A[i])
                 i++;
