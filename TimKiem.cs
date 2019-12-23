@@ -49,8 +49,8 @@
             Console.Write("Nhap phan tu can tim: ");
             int x = int.Parse(Console.ReadLine());
             int i = TimKiemTuanTuVetCan(A, n, x);
-            //int i = TimKiemTuanTuLinhCanh(A, n, x);
-            //int i = TimKiemNhiPhan(A, n, x);
+            int i = TimKiemTuanTuLinhCanh(A, n, x);
+            int i = TimKiemNhiPhan(A, n, x);
             Console.Write($"{x} vi tri {i}");
             Console.ReadLine();
         }
