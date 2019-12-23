@@ -29,18 +29,16 @@
         }
         static int TimKiemNhiPhan(int[] A, int n, int x)
         {
-            int L = 0;
-            int R = n - 1;
-            int M;
-            do
+            int Left = 0;
+            int Right = n - 1;
+            while (Left <= Right)
             {
-                M = (L + R) / 2;
-                if (x < A[M]) R = M - 1;
-                else if (x > A[M]) L = M + 1;
-                else return M;
+                int Mid = (Left + Right) / 2;
+                if (x == A[Mid]) return Mid;
+                else if (x < A[Mid]) Right = Mid - 1;
+                else Left = Mid + 1;
             }
-            while (L > R);
-            return M;
+            return -1;
         }
         static void Main(string[] args)
         {
