@@ -1,11 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp1
-{
     class Program
     {
         static int[] NhapMang(int n)
@@ -69,12 +61,11 @@ namespace ConsoleApp1
             A = NhapMang(n);
             Console.Write("Nhap phan tu can tim: ");
             int x = int.Parse(Console.ReadLine());
-            //int i = TimKiemTuanTuVetCan(A, n, x);
-            //int i = TimKiemTuanTuLinhCanh(A, n, x);
-            //int i = TimKiemNhiPhan(A, n, x);
+            int i = TimKiemTuanTuVetCan(A, n, x);
+            int i = TimKiemTuanTuLinhCanh(A, n, x);
+            int i = TimKiemNhiPhan(A, n, x);
             int i = TimKiemNhiPhanDeQuy(A, 0, n-1, x);
             Console.Write($"{x} vi tri {i}");
             Console.ReadLine();
         }
     }
-}
