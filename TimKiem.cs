@@ -1,5 +1,3 @@
-    class Program
-    {
         static int[] NhapMang(int n)
         {
             int[] A;
@@ -68,4 +66,3 @@
             Console.Write($"{x} vi tri {i}");
             Console.ReadLine();
         }
-    }
