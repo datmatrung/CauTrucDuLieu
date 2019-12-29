@@ -59,9 +59,9 @@
         {
             if (left > right) return -1;
             int mid = (left + right) / 2;
-            if (A[mid] == x) return mid;
-            if (x < A[mid]) return TimKiemNhiPhanDeQuy(A, left, mid - 1, x);
-            return TimKiemNhiPhanDeQuy(A, mid + 1, right, x);
+            if (a[mid] == x) return mid;
+            if (x < a[mid]) return TimKiemNhiPhanDeQuy(a, left, mid - 1, x);
+            return TimKiemNhiPhanDeQuy(a, mid + 1, right, x);
         }
         static void Main(string[] args)
         {
@@ -72,9 +72,9 @@
             Console.Write("Nhap phan tu can tim: ");
             int x = int.Parse(Console.ReadLine());
             int i = TimKiemTuanTuVetCan(A, n, x);
-            int i = TimKiemTuanTuLinhCanh(A, n, x);
-            int i = TimKiemNhiPhan(A, n, x);
-            int i = TimKiemNhiPhanDeQuy(A, 0, n-1, x);
+            //int i = TimKiemTuanTuLinhCanh(A, n, x);
+            //int i = TimKiemNhiPhan(A, n, x);
+            //int i = TimKiemNhiPhanDeQuy(A, 0, n-1, x);
             Console.Write($"{x} vi tri {i}");
             Console.ReadLine();
         }
