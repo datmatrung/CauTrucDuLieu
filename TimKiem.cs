@@ -62,6 +62,7 @@
             //int pos = TimKiemNhiPhanDeQuy(a, 0, n-1, x);
             if (pos == -1)
                 Console.WriteLine($"Khong tim thay {x}");
-            Console.Write($"{x} o vi tri {pos}");
+            else
+                Console.Write($"{x} o vi tri {pos}");
             Console.ReadLine();
         }
