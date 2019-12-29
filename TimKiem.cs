@@ -9,41 +9,53 @@
             }
             return A;
         }
-        static int TimKiemTuanTuVetCan(int[] A, int n, int x)
+        static int TimKiemTuanTuVetCan(int[] a, int n, int x)
         {
-            int i = 0;
-            while (i < n)
-            {
-                if (x != A[i]) i++;
-                else return i;
-            }
-            return -1;
+            int pos = -1;
+            for (int i = 0; i < n; i++)
+                if (a[i] == x)
+                {
+                    pos = i;
+                    break;
+                }
+            return pos;
         }
-        static int TimKiemTuanTuLinhCanh(int[] A, int n, int x)
+        static int TimKiemTuanTuLinhCanh(int[] a, int n, int x)
         {
-            int[] B = new int[n + 1];
-            Array.Copy(A, B, n);
-            B[n] = x;
+            // Append x at the end of array a
+            int[] b = new int[n + 1];
+            Array.Copy(a, b, n);
+            b[n] = x;
+
+            // Search x in array a
             int i = 0;
-            while (x != B[i])
+            while(b[i] != x)
                 i++;
-            if (i == n) i = -1;
+            if (i == n)
+                return -1;
             return i;
         }
-        static int TimKiemNhiPhan(int[] A, int n, int x)
+        static int TimKiemNhiPhan(int[] a, int n, int x)
         {
-            int Left = 0;
-            int Right = n - 1;
-            while (Left <= Right)
+            int pos = -1;
+            int left = 0;
+            int right = n - 1;
+            while(left <= right)
             {
-                int Mid = (Left + Right) / 2;
-                if (x == A[Mid]) return Mid;
-                else if (x < A[Mid]) Right = Mid - 1;
-                else Left = Mid + 1;
+                int mid = (left + right)/ 2;
+                if (a[mid] == x)
+                {
+                    pos = mid;
+                    break;
+                }
+                if (a[mid] < x)
+                    left = mid + 1;
+                else
+                    right = mid - 1;
             }
-            return -1;
+            return pos;
         }
-        static int TimKiemNhiPhanDeQuy(int[] A, int left, int right, int x)
+        static int TimKiemNhiPhanDeQuy(int[] a, int left, int right, int x)
         {
             if (left > right) return -1;
             int mid = (left + right) / 2;
