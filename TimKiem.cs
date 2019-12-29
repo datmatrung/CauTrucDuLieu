@@ -11,12 +11,9 @@
         }
         static int TimKiemTuanTuLinhCanh(int[] a, int n, int x)
         {
-            // Append x at the end of array a
             int[] b = new int[n + 1];
             Array.Copy(a, b, n);
             b[n] = x;
-
-            // Search x in array a
             int i = 0;
             while(b[i] != x)
                 i++;
@@ -59,7 +56,6 @@
             for (int i = 0; i < n; i++)
                 a[i] = int.Parse(Console.ReadLine());
             int x = int.Parse(Console.ReadLine());
-            
             int i = TimKiemTuanTuVetCan(A, n, x);
             //int i = TimKiemTuanTuLinhCanh(A, n, x);
             //int i = TimKiemNhiPhan(A, n, x);
