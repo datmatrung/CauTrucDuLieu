@@ -56,12 +56,12 @@
             for (int i = 0; i < n; i++)
                 a[i] = int.Parse(Console.ReadLine());
             int x = int.Parse(Console.ReadLine());
-            int i = TimKiemTuanTuVetCan(A, n, x);
-            //int i = TimKiemTuanTuLinhCanh(A, n, x);
-            //int i = TimKiemNhiPhan(A, n, x);
-            //int i = TimKiemNhiPhanDeQuy(A, 0, n-1, x);
+            int pos = TimKiemTuanTuVetCan(a, n, x);
+            //int pos = TimKiemTuanTuLinhCanh(a, n, x);
+            //int pos = TimKiemNhiPhan(a, n, x);
+            //int pos = TimKiemNhiPhanDeQuy(a, 0, n-1, x);
             if (pos == -1)
                 Console.WriteLine($"Khong tim thay {x}");
-            Console.Write($"{x} o vi tri {i}");
+            Console.Write($"{x} o vi tri {pos}");
             Console.ReadLine();
         }
