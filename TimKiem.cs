@@ -29,12 +29,12 @@
             while(left <= right)
             {
                 int mid = (left + right)/ 2;
-                if (a[mid] == x)
+                if (x == a[mid])
                 {
                     pos = mid;
                     break;
                 }
-                if (a[mid] < x)
+                if (x > a[mid])
                     left = mid + 1;
                 else
                     right = mid - 1;
@@ -45,7 +45,7 @@
         {
             if (left > right) return -1;
             int mid = (left + right) / 2;
-            if (a[mid] == x) return mid;
+            if (x == a[mid]) return mid;
             if (x < a[mid]) return TimKiemNhiPhanDeQuy(a, left, mid - 1, x);
             return TimKiemNhiPhanDeQuy(a, mid + 1, right, x);
         }
@@ -56,9 +56,9 @@
             for (int i = 0; i < n; i++)
                 a[i] = int.Parse(Console.ReadLine());
             int x = int.Parse(Console.ReadLine());
-            int pos = TimKiemTuanTuVetCan(a, n, x);
+            //int pos = TimKiemTuanTuVetCan(a, n, x);
             //int pos = TimKiemTuanTuLinhCanh(a, n, x);
-            //int pos = TimKiemNhiPhan(a, n, x);
+            int pos = TimKiemNhiPhan(a, n, x);
             //int pos = TimKiemNhiPhanDeQuy(a, 0, n-1, x);
             if (pos == -1)
                 Console.WriteLine($"Khong tim thay {x}");
