@@ -11,23 +11,23 @@ namespace QuickSort
 		static int PhanHoach(int[] A, int first, int last)
 		{
 			int pivot = first;
-			int firstS2, firstUnknown;
-			firstS2 = firstUnknown = first + 1;
+			int firstUnknown = first + 1;
+			int lastS1 = first;
 			while (firstUnknown <= last)
 			{
 				if (A[pivot] > A[firstUnknown])
 				{
-					int temp = A[firstS2];
-					A[firstS2] = A[firstUnknown];
+					int temp = A[lastS1 + 1];
+					A[lastS1 + 1] = A[firstUnknown];
 					A[firstUnknown] = temp;
-					firstS2++;
+					lastS1++;
 				}
 				firstUnknown++;
 			}
 			int temp1 = A[pivot];
-			A[pivot] = A[firstS2 - 1];
-			A[firstS2 - 1] = temp1;
-			return firstS2 - 1;
+			A[pivot] = A[lastS1];
+			A[lastS1] = temp1;
+			return lastS1;
 		}
 		static void QuickSort(int[] A, int first, int last)
 		{
