@@ -8,21 +8,18 @@ namespace ConsoleApp16
 {
 	class Program
 	{
-        static void selectionSort(int[] arr, int n)
+        static void selectionSort(int[] A, int n)
         {
-            int i, j, min_index;
-            // Di chuyển ranh giới của mảng đã sắp xếp và chưa sắp xếp
-            for (i = 0; i < n - 1; i++)
+            int i = 0;
+            while (i < n)
             {
-                // Tìm phần tử nhỏ nhất trong mảng chưa sắp xếp
-                min_index = i;
-                for (j = i + 1; j < n; j++)
-                    if (arr[j] < arr[min_index])
-                        min_index = j;
-                // Đổi chỗ phần tử nhỏ nhất với phần tử đầu tiên
-                int temp = arr[min_index];
-                arr[min_index] = arr[i];
-                arr[i] = temp;
+                int min = i;
+                for (int j = i + 1; j < n; j++)
+                    if (A[j] < A[min]) min = j;
+                int temp = A[min];
+                A[min] = A[i];
+                A[i] = temp;
+                i++;
             }
         }
 
