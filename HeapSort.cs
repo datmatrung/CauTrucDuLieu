@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ConsoleApp16
 {
@@ -10,6 +10,7 @@ namespace ConsoleApp16
             arr[x] = arr[y];
             arr[y] = temp;
         }
+        
         static void heapify(int[] arr, int n, int i)
         {
             int max = i; 
@@ -18,10 +19,8 @@ namespace ConsoleApp16
             
             if (left < n && arr[left] > arr[max])
                 max = left;
-
             if (right < n && arr[right] > arr[max])
                 max = right;
-
             if (max != i)
             {
                 swap(arr, max, i);
@@ -33,7 +32,6 @@ namespace ConsoleApp16
         {
             for (int i = n / 2 - 1; i >= 0; i--)
                 heapify(arr, n, i);
-
             for (int i = n - 1; i > 0; i--)
             {
                 swap(arr, 0, i);
