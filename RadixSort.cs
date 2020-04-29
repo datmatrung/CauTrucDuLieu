@@ -40,7 +40,7 @@ namespace ConsoleApp16
                 output[count[(arr[i] / exp) % 10] - 1] = arr[i];
                 count[(arr[i] / exp) % 10]--;
             }
-            // Gán mảng output vào dãy số arr
+            // Copy mảng output vào mảng arr
             for (int i = 0; i < n; i++)
                 arr[i] = output[i];
         }
