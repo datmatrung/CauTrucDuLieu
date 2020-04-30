@@ -5,7 +5,7 @@ namespace ConsoleApp16
     {
         public static void RadixSort(int[] arr, int n)
         {
-            // Khởi tạo dãy số tạm và các thùng chứa
+            // Khởi tạo mảng tạm và các thùng chứa
             int[] output = new int[n];
             int[] count = new int[10];
             // Tìm phần tử lớn nhất trong dãy số
