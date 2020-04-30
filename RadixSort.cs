@@ -5,18 +5,21 @@ namespace ConsoleApp16
     {
         public static void RadixSort(int[] arr, int n)
         {
+            // Khởi tạo dãy số tạm và các thùng chứa
             int[] output = new int[n];
             int[] count = new int[10];
+            // Tìm phần tử lớn nhất trong dãy số
             int max = arr[0];
             for (int i = 1; i < n; i++)
                 if (arr[i] > max) max = arr[i];
+            // Bắt đầu sắp xếp từ hàng đơn vị
             int exp = 1;
             while (max / exp > 0)
             {
                 // Khởi tạo bộ đếm của các thùng chứa từ 0 đến 9
                 for (int i = 0; i < 10; i++)
                     count[i] = 0;
-                // Sắp xếp dãy số vào trong thùng và tăng bộ đếm của từng thùng
+                // Sắp xếp dãy số vào thùng và tăng bộ đếm của từng thùng
                 for (int i = 0; i < n; i++)
                     count[(arr[i] / exp) % 10]++;
                 // Kết nối các phần tử tạo thành dãy các chỉ số đã sắp xếp
@@ -31,6 +34,7 @@ namespace ConsoleApp16
                 // Copy mảng output vào mảng arr
                 for (int i = 0; i < n; i++)
                     arr[i] = output[i];
+                // Tăng cơ số lên hàng chục, hàng trăm, hàng ngàn...
                 exp *= 10;
             }
         }
