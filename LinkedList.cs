@@ -20,9 +20,12 @@ class LinkedList
     {
         if (head == null)
             head = new Node(value);
-        Node newNode = new Node(value);
-        newNode.next = head;
-        head = newNode;
+        else
+        {
+            Node newNode = new Node(value);
+            newNode.next = head;
+            head = newNode;
+        }
     }
     public void NhapDanhSach(int[] arr)
     {
