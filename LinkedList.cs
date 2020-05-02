@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 class Node
 {
     public int data;
@@ -15,6 +15,19 @@ class LinkedList
     public LinkedList()
     {
         head = null;
+    }
+    public void AddHead(int value)
+    {
+        if (head == null)
+            head = new Node(value);
+        Node newNode = new Node(value);
+        newNode.next = head;
+        head = newNode;
+    }
+    public void NhapDanhSach(int[] arr)
+    {
+        for (int i = 0; i < arr.Length; i++)
+            AddHead(arr[i]);
     }
     public void InDanhSach()
     {
@@ -51,74 +64,81 @@ class LinkedList
             Console.WriteLine(pos);
         else Console.WriteLine("Khong tim thay");
     }
-    public void AddHead(int value)
+    public void ThemPhanTu(int pos, int value)
     {
-        if (head == null)
-            head = new Node(value);
-        Node newNode = new Node(value);
-        newNode.next = head;
-        head = newNode;
-    }
-    public void AddTail(int value)
-    {
-        if (head == null)
-            head = new Node(value);
-        Node newNode = new Node(value);
-        Node last = head;
-        while (last.next != null)
-            last = last.next;
-        last.next = newNode;
-        return;
-    }
-    public void AddAt(int pos, int value)
-    {
-        if (pos == 0 || head == null)
+        if (pos <= 0 || head == null)
             AddHead(value);
-        int k = 1;
-        Node last = head;
-        while (last.next != null && k != pos)
+        else if (pos >= DemDanhSach())
         {
-            last = last.next;
-            k++;
+            Node newNode = new Node(value);
+            Node last = head;
+            while (last.next != null)
+                last = last.next;
+            last.next = newNode;
         }
-        if (k != pos)
-            AddTail(value);
         else
         {
+            int k = 1;
+            Node last = head;
+            while (last.next != null && k != pos)
+            {
+                last = last.next;
+                k++;
+            }
             Node temp = new Node(value);
             temp.next = last.next;
             last.next = temp;
         }
     }
-    public void DelHead()
+    public void XoaPhanTu(int pos)
     {
         if (head == null)
             Console.WriteLine("Khong co gi de xoa");
-        else head = head.next;
-    }
-    public void DelTail()
-    {
-        Node last = head;
-        while (last.next.next != null)
+        else if (pos <= 0)
+            head = head.next;
+        else if (pos >= DemDanhSach())
         {
-            last = last.next;
-        }
-        last.next = last.next.next;
-    }
-    public void DelAt(int pos)
-    {
-        if (pos == 0 || head == null)
-            DelHead();
-        int k = 1;
-        Node last = head;
-        while (last.next != null && k != pos)
+            Node last = head;
+            while (last.next.next != null)
+                last = last.next;
+            last.next = last.next.next;
+        }    
+        else
         {
-            last = last.next;
-            k++;
+            int k = 1;
+            Node last = head;
+            while (last.next != null && k != pos)
+            {
+                last = last.next;
+                k++;
+            }
+            last.next = last.next.next;
         }
-        if (k != pos)
-            DelTail();
-        else last.next = last.next.next;
+    }
+    public void SuaPhanTu(int pos, int value)
+    {
+        if (head == null)
+            AddHead(value);
+        else if (pos <= 0)
+            head.data = value;
+        else if (pos >= DemDanhSach())
+        {
+            Node last = head;
+            while (last.next != null)
+                last = last.next;
+            last.data = value;
+        }
+        else
+        {
+            int k = 0;
+            Node last = head;
+            while (last.next != null && k != pos)
+            {
+                last = last.next;
+                k++;
+            }
+            last.data = value;
+        }
     }
     public void DaoDanhSach()
     {
@@ -134,11 +154,6 @@ class LinkedList
             previous = current;
         }
         head = current;
-    }
-    public void NhapDanhSach(int[] arr)
-    {
-        for (int i = 0; i < arr.Length; i++)
-            AddTail(arr[i]);
     }
 }
 class Program
