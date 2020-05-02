@@ -101,9 +101,9 @@ class LinkedList
                 last = last.next;
                 k++;
             }
-            Node temp = new Node(value);
-            temp.next = last.next;
-            last.next = temp;
+            Node newNode = new Node(value);
+            newNode.next = last.next;
+            last.next = newNode;
         }
     }
     public void XoaPhanTu(int pos)
