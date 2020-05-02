@@ -35,7 +35,7 @@ class LinkedList
     public void InDanhSach()
     {
         Node last = head;
-        while (last.next != null)
+        while (last != null)
         {
             Console.Write(last.data + " ");
             last = last.next;
