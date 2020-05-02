@@ -31,11 +31,11 @@ class LinkedList
     }
     public void InDanhSach()
     {
-        Node node = head;
-        while (node != null)
+        Node last = head;
+        while (last.next != null)
         {
-            Console.Write(node.data + " ");
-            node = node.next;
+            Console.Write(last.data + " ");
+            last = last.next;
         }
         Console.WriteLine();
     }
