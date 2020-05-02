@@ -39,6 +39,21 @@ class LinkedList
         }
         Console.WriteLine();
     }
+    public void DaoDanhSach()
+    {
+        if (head == null)
+            Console.WriteLine("Danh sach rong");
+        Node current = null;
+        Node previous = null;
+        while (head != null)
+        {
+            current = head;
+            head = head.next;
+            current.next = previous;
+            previous = current;
+        }
+        head = current;
+    }
     public int DemDanhSach()
     {
         int count = 0;
@@ -139,21 +154,6 @@ class LinkedList
             }
             last.data = value;
         }
-    }
-    public void DaoDanhSach()
-    {
-        if (head == null)
-            Console.WriteLine("Danh sach rong");
-        Node current = null;
-        Node previous = null;
-        while (head != null)
-        {
-            current = head;
-            head = head.next;
-            current.next = previous;
-            previous = current;
-        }
-        head = current;
     }
 }
 class Program
