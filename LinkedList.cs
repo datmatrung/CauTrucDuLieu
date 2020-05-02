@@ -66,7 +66,7 @@ class LinkedList
         }
         return count;
     }
-    public void TimPhanTu(int value)
+    public int TimPhanTu(int value)
     {
         int pos = 0;
         Node last = head;
@@ -77,8 +77,8 @@ class LinkedList
             last = last.next;
         }
         if (pos < DemDanhSach())
-            Console.WriteLine(pos);
-        else Console.WriteLine("Khong tim thay");
+            return pos;
+        else return -1;
     }
     public void ThemPhanTu(int pos, int value)
     {
