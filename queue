@@ -1,0 +1,127 @@
+    class Node
+    {
+        int number;
+        Node next;
+        public Node()
+        {
+            number = 0;
+            next = null;
+        }
+        public Node(int a_number)
+        {
+            number = a_number;
+            next = null;
+        }
+        public Node AddHead(int value)
+        {
+            Node newNode = new Node(value);
+            newNode.next = this;
+            return newNode;
+        }
+        public Node AddLast(int value)
+        {
+            Node newNode = new Node(value);
+            next = newNode;
+            return newNode;
+        }
+        public int GetValue()
+        {
+            return number;
+        }
+        public Node GetNext()
+        {
+            return next;
+        }
+    }
+
+    class LinkedList
+    {
+        Node head;
+        Node tail;
+        public LinkedList()
+        {
+            head = null;
+            tail = null;
+        }
+        public void AddHead(int value)
+        {
+            if(head == null)
+            {
+                head = new Node(value);
+                tail = head;
+            }
+            else
+                head = head.AddHead(value);
+        }
+        public void AddLast(int value)
+        {
+            if(head == null)
+            {
+                head = new Node(value);
+                tail = head;
+            }
+            else
+                tail = tail.AddLast(value);
+        }
+        public int GetHead()
+        {
+            if(head == null)
+                Console.WriteLine("LinkedList is empty");
+            return head.GetValue();
+        }
+        public void RemoveHead()
+        {
+            if(head == null)
+                Console.WriteLine("LinkedList is empty");
+            head = head.GetNext();
+        }
+        public bool IsEmpty()
+        {
+            return head == null;
+        }
+    }
+
+    class Queue
+    {
+        LinkedList list;
+        public Queue()
+        {
+            list = new LinkedList();
+        }
+        public void Enqueue(int value)
+        {
+            list.AddLast(value);
+        }
+        public int Dequeue()
+        {
+            int value = list.GetHead();
+            list.RemoveHead();
+            return value;
+        }
+        public bool IsEmpty()
+        {
+            return list.IsEmpty();
+        }
+        public bool IsFull()
+        {
+            return false;
+        }
+        public int Peak()
+        {
+            return list.GetHead();
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Queue queue = new Queue();
+            queue.Enqueue(10);
+            queue.Enqueue(30);
+            queue.Enqueue(100);
+            Console.WriteLine("Head of Queue: " + queue.Peak().ToString());
+            while(!queue.IsEmpty())
+                Console.WriteLine(queue.Dequeue());
+            Console.WriteLine("Done");
+        }
+    }
