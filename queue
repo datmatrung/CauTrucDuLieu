@@ -123,6 +123,6 @@
             Console.WriteLine("Head of Queue: " + queue.Peak().ToString());
             while(!queue.IsEmpty())
                 Console.WriteLine(queue.Dequeue());
-            Console.WriteLine("Done");
+            Console.ReadLine();
         }
     }
