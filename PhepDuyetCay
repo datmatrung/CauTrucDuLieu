@@ -1,35 +1,35 @@
-void Preorder(Node A)
+void DuyetTruoc(Node A)
 {
-  Visit(A); 
-  Node B = EldestChild(A);
+  XuLyTai(A); 
+  Node B = TimNodeConTraiNhat(A);
   while (B != null)
   {
-    Preorder(B);
-    B = NextSibling(B);
+    DuyetTruoc(B);
+    B = NhaySangNodePhai(B);
   }
 }
-void Postorder(Node A)
+void DuyetSau(Node A)
 {
-  Node B = EldestChild(A);
+  Node B = TimNodeConTraiNhat(A);
   while (B != null) 
   {
-    Postorder(B);
-    B = NextSibling(B);
+    DuyetSau(B);
+    B = NhaySangNodePhai(B);
   }
-  Visit(A);
+  XuLyTai(A);
 }
-void Inorder(Node A)
+void DuyetGiua(Node A)
 {
-  Node B = EldestChild(A);
+  Node B = TimNodeConTraiNhat(A);
   if (B != null)
   {
-    Inorder(B);
-    B = NextSibling(B);
+    DuyetGiua(B);
+    B = NhaySangNodePhai(B);
   }
-  Visit(A);
+  XuLyTai(A);
   while (B != null)
   {
-    Inorder(B);
-    B = NextSibling(B);
+    DuyetGiua(B);
+    B = NhaySangNodePhai(B);
   }
 }
