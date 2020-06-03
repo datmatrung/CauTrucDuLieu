@@ -21,10 +21,15 @@ void DuyetSau(Node A)
 void DuyetGiua(Node A)
 {
   Node B = TimNodeConTraiNhat(A);
+  if (B != null)
+  {
+    DuyetGiua(B);
+    B = NhaySangNodePhai(B);
+  }
+  XuLyTai(A);
   while (B != null)
   {
-    DuyetGiua(B)
-    XuLyTai(B);
+    DuyetGiua(B);
     B = NhaySangNodePhai(B);
   }
 }
