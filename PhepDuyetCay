@@ -10,7 +10,7 @@ void Preorder(Node A)
 }
 void Postorder(Node A)
 {
-  NODE B = EldestChild(A);
+  Node B = EldestChild(A);
   while (B != null) 
   {
     Postorder(B);
@@ -18,9 +18,9 @@ void Postorder(Node A)
   }
   Visit(A);
 }
-void Inorder(NODE A)
+void Inorder(Node A)
 {
-  NODE B = EldestChild(A);
+  Node B = EldestChild(A);
   if (B != null)
   {
     Inorder(B);
