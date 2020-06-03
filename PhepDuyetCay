@@ -23,7 +23,8 @@ void DuyetGiua(Node A)
   Node B = TimNodeConTraiNhat(A);
   while (B != null)
   {
-    XuLyTai(DuyetGiua(B));
+    DuyetGiua(B)
+    XuLyTai(B);
     B = NhaySangNodePhai(B);
   }
 }
