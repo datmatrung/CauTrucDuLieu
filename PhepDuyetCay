@@ -1,0 +1,35 @@
+void Preorder(Node A)
+{
+  Visit(A); 
+  Node B = EldestChild(A);
+  while (B != null)
+  {
+    Preorder(B);
+    B = NextSibling(B);
+  }
+}
+void Postorder(Node A)
+{
+  NODE B = EldestChild(A);
+  while (B != null) 
+  {
+    Postorder(B);
+    B = NextSibling(B);
+  }
+  Visit(A);
+}
+void Inorder(NODE A)
+{
+  NODE B = EldestChild(A);
+  if (B != null)
+  {
+    Inorder(B);
+    B = NextSibling(B);
+  }
+  Visit(A);
+  while (B != null)
+  {
+    Inorder(B);
+    B = NextSibling(B);
+  }
+}
