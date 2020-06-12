@@ -1,33 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp16
+class Program
 {
-	class Program
-	{
-        static void selectionSort(int[] A, int n)
+    static void SelectionSort(int[] A)
+    {
+        int n = A.Length;
+        for (int i = 0; i < n; i++)
         {
-            int i = 0;
-            while (i < n)
-            {
-                int min = i;
-                for (int j = i + 1; j < n; j++)
-                    if (A[j] < A[min]) min = j;
-                int temp = A[min];
-                A[min] = A[i];
-                A[i] = temp;
-                i++;
-            }
-        }
-
-        static void Main(string[] args)
-        {
-            int[] A = { 7, 8, 3, 5, 4, 2, 9, 6 };
-            selectionSort(A, A.Length);
-            Console.ReadLine();
-        }
+            int min = i;
+            for (int j = i; j < n; j++)
+                if (A[min] > A[j]) min = j;
+            int temp = A[min];
+            A[min] = A[i];
+            A[i] = temp;
+        }    
+    }
+    static void Main()
+    {
+        int[] A = { 2, 7, 13, 50, 24, 16 };
+        SelectionSort(A);
     }
 }
