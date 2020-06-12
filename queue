@@ -35,10 +35,10 @@
         }
     }
 
-    class LinkedList
+    public class LinkedList
     {
-        Node head;
-        Node tail;
+        public Node head;
+        public Node tail;
         public LinkedList()
         {
             head = null;
@@ -99,9 +99,9 @@
         }
     }
 
-    class Queue
+    public class Queue
     {
-        LinkedList list;
+        public LinkedList list;
         public Queue()
         {
             list = new LinkedList();
@@ -130,9 +130,9 @@
         }
     }
     
-    class Stack
+    public class Stack
     {
-        LinkedList list;
+        public LinkedList list;
         public Stack()
         {
             list = new LinkedList();
