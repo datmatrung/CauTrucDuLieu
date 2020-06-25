@@ -3,14 +3,9 @@
     {
         public int number;
         public Node next;
-        public Node()
+        public Node(int value)
         {
-            number = 0;
-            next = null;
-        }
-        public Node(int a_number)
-        {
-            number = a_number;
+            number = value;
             next = null;
         }
         public Node AddHead(int value)
@@ -70,28 +65,11 @@
                 Console.WriteLine("LinkedList is empty");
             return head.GetValue();
         }
-        public int GetLast()
-        {
-            if(head == null)
-                Console.WriteLine("LinkedList is empty");
-            return tail.GetValue();
-        }
         public void RemoveHead()
         {
             if(head == null)
                 Console.WriteLine("LinkedList is empty");
             head = head.GetNext();
-        }
-        public void RemoveTail()
-        {
-            if (head == null)
-                Console.WriteLine("LinkedList is empty");
-            if (head.next == null)
-                RemoveHead();
-            Node second_last = head; 
-            while (second_last.next.next != null) 
-                second_last = second_last.next; 
-            second_last.next = null; 
         }
         public bool IsEmpty()
         {
@@ -120,10 +98,6 @@
         {
             return list.IsEmpty();
         }
-        public bool IsFull()
-        {
-            return false;
-        }
         public int Peak()
         {
             return list.GetHead();
@@ -139,21 +113,17 @@
         }
         public void Push(int value)
         {
-            list.AddLast(value);
+            list.AddHead(value);
         }
         public int Pop()
         {
-            int value = list.GetLast();
-            list.RemoveTail();
+            int value = list.GetHead();
+            list.RemoveHead();
             return value;
         }
         public bool IsEmpty()
         {
             return list.IsEmpty();
-        }
-        public bool IsFull()
-        {
-            return false;
         }
         public int Peak()
         {
