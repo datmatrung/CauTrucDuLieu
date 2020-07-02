@@ -1,0 +1,101 @@
+using System;
+public class Node
+{
+    public int number;
+    public Node next;
+    public Node(int value)
+    {
+        number = value;
+        next = null;
+    }
+    public Node AddHead(int value)
+    {
+        Node newNode = new Node(value);
+        newNode.next = this;
+        return newNode;
+    }
+    public int GetValue()
+    {
+        return number;
+    }
+    public Node GetNext()
+    {
+        return next;
+    }
+}
+public class LinkedList
+{
+    public Node head;
+    public Node tail;
+    public LinkedList()
+    {
+        head = null;
+        tail = null;
+    }
+    public void AddHead(int value)
+    {
+        if (head == null)
+        {
+            head = new Node(value);
+            tail = head;
+        }
+        else
+            head = head.AddHead(value);
+    }
+    public int GetHead()
+    {
+        if (head == null)
+            Console.WriteLine("LinkedList is empty");
+        return head.GetValue();
+    }
+    public void RemoveHead()
+    {
+        if (head == null)
+            Console.WriteLine("LinkedList is empty");
+        head = head.GetNext();
+    }
+    public bool IsEmpty()
+    {
+        return head == null;
+    }
+}
+public class Stack
+{
+    public LinkedList list;
+    public Stack()
+    {
+        list = new LinkedList();
+    }
+    public void Push(int value)
+    {
+        list.AddHead(value);
+    }
+    public int Pop()
+    {
+        int value = list.GetHead();
+        list.RemoveHead();
+        return value;
+    }
+    public bool IsEmpty()
+    {
+        return list.IsEmpty();
+    }
+    public int Peak()
+    {
+        return list.GetHead();
+    }
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        Stack stack = new Stack();
+        stack.Push(10);
+        stack.Push(30);
+        stack.Push(100);
+        Console.WriteLine($"Head of Stack: {stack.Peak()}");
+        while (!stack.IsEmpty())
+            Console.WriteLine(stack.Pop());
+        Console.ReadLine();
+    }
+}
