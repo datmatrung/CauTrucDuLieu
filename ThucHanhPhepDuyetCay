@@ -1,0 +1,103 @@
+using System;
+public class Node
+{
+    public int data;
+    public Node rightNode;
+    public Node leftNode;
+    public Node(int value)
+    {
+        data = value;
+        rightNode = null;
+        leftNode = null;
+    }
+    public void Insert(int value)
+    {
+        if (value >= data)
+        {
+            if (rightNode == null)
+                rightNode = new Node(value);
+            else
+                rightNode.Insert(value);
+        }
+        else
+        {
+            if (leftNode == null)
+                leftNode = new Node(value);
+            else
+                leftNode.Insert(value);
+        }
+    }
+    public void InOrder()
+    {
+        if (leftNode != null)
+            leftNode.InOrder();
+        Console.Write(data + " ");
+        if (rightNode != null)
+            rightNode.InOrder();
+    }
+    public void PreOrder()
+    {
+        Console.Write(data + " ");
+        if (leftNode != null)
+            leftNode.PreOrder();
+        if (rightNode != null)
+            rightNode.PreOrder();
+    }
+    public void Postorder()
+    {
+        if (leftNode != null)
+            leftNode.Postorder();
+        if (rightNode != null)
+            rightNode.Postorder();
+        Console.Write(data + " ");
+    }
+}
+public class BinaryTree
+{
+    public Node root;
+    public BinaryTree()
+    {
+        root = null;
+    }
+    public void Insert(int data)
+    {
+        if (root != null)
+            root.Insert(data);
+        else
+            root = new Node(data);
+    }
+    public void InOrder()
+    {
+        if (root != null)
+            root.InOrder();
+    }
+    public void Preorder()
+    {
+        if (root != null)
+            root.PreOrder();
+    }
+    public void Postorder()
+    {
+        if (root != null)
+            root.Postorder();
+    }
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[] A = { 75, 57, 90, 32, 7, 44, 60, 86, 93, 99, 100 };
+        BinaryTree binaryTree = new BinaryTree();
+        foreach (var i in A)
+        {
+            binaryTree.Insert(i);
+        }    
+        Console.WriteLine("Phep Duyet Giua");
+        binaryTree.InOrder();
+        Console.WriteLine("\nPhep Duyet Truoc");
+        binaryTree.Preorder();
+        Console.WriteLine("\nPhep Duyet Sau");
+        binaryTree.Postorder();
+        Console.ReadLine();
+    }
+}
