@@ -1,0 +1,63 @@
+using System;
+public class Node
+{
+    public int data;
+    public Node left;
+    public Node right;
+    public Node(int value)
+    {
+        data = value;
+        left = null;
+        right = null;
+    }
+    public void Insert(int value)
+    {
+        if (value >= data)
+        {
+            if (right == null)
+                right = new Node(value);
+            else
+                right.Insert(value);
+        }
+        else
+        {
+            if (left == null)
+                left = new Node(value);
+            else
+                left.Insert(value);
+        }
+    }
+}
+public class BinaryTree
+{
+    public Node root;
+    public BinaryTree()
+    {
+        root = null;
+    }
+    public void Insert(int value)
+    {
+        if (root == null)
+            root = new Node(value);
+        else
+            root.Insert(value);
+    }
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        BinaryTree binaryTree = new BinaryTree();
+        binaryTree.Insert(75);
+        binaryTree.Insert(57);
+        binaryTree.Insert(90);
+        binaryTree.Insert(32);
+        binaryTree.Insert(7);
+        binaryTree.Insert(44);
+        binaryTree.Insert(60);
+        binaryTree.Insert(86);
+        binaryTree.Insert(93);
+        binaryTree.Insert(99);
+        binaryTree.Insert(100);
+    }
+}
