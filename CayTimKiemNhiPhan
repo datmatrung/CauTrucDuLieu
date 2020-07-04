@@ -1,0 +1,137 @@
+using System;
+public class Node
+{
+    public int data;
+    public Node left;
+    public Node right;
+    public Node(int value)
+    {
+        data = value;
+        left = null;
+        right = null;
+    }
+    public void Insert(int value)
+    {
+        if (value >= data)
+        {
+            if (right == null)
+                right = new Node(value);
+            else
+                right.Insert(value);
+        }
+        else
+        {
+            if (left == null)
+                left = new Node(value);
+            else
+                left.Insert(value);
+        }
+    }
+    public bool Search(int value)
+    {
+        if (value == data)
+            return true;
+        else if (value < data && left != null)
+            return left.Search(value);
+        else if (right != null)
+            return right.Search(value);
+        else
+            return false;
+    }
+    public void Sort()
+    {
+        if (left != null)
+            left.Sort();
+        Console.Write(data + " ");
+        if (right != null)
+            right.Sort();
+    }
+    public int CountLeaf()
+    {
+        if (this.left == null && this.right == null)
+            return 1;
+        int left = 0;
+        int right = 0;
+        if (this.left != null)
+            left = this.left.CountLeaf();
+        if (this.right != null)
+            right = this.right.CountLeaf();
+        return left + right;
+    }
+    public int Height()
+    {
+        if (this.left == null && this.right == null)
+            return 1;
+        int left = 0;
+        int right = 0;
+        if (this.left != null)
+            left = this.left.Height();
+        if (this.right != null)
+            right = this.right.Height();
+        if (left > right)
+            return (left + 1);
+        else
+            return (right + 1);
+    }
+}
+public class BinaryTree
+{
+    public Node root;
+    public BinaryTree()
+    {
+        root = null;
+    }
+    public void Insert(int value)
+    {
+        if (root == null)
+            root = new Node(value);
+        else
+            root.Insert(value);
+    }
+    public bool Search(int data)
+    {
+        if (root != null)
+            return root.Search(data);
+        else
+            return false;
+    }
+    public void Sort()
+    {
+        if (root != null)
+            root.Sort();
+    }
+    public int CountLeaf()
+    {
+        if (root != null)
+            return root.CountLeaf();
+        else
+            return 0;
+    }
+    public int Height()
+    {
+        if (root != null)
+            return root.Height();
+        else
+            return 0;
+    }
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[] A = { 50, 30, 70, 23, 35, 80, 11, 25, 31, 42, 73, 85 };
+        BinaryTree binaryTree = new BinaryTree();
+        foreach (var i in A)
+        {
+            binaryTree.Insert(i);
+        }
+        Console.Write("Search node: ");
+        Console.WriteLine(binaryTree.Search(81));
+        binaryTree.Sort();
+        Console.Write("\nCount leaf nodes: ");
+        Console.WriteLine(binaryTree.CountLeaf());
+        Console.Write("Height tree: ");
+        Console.WriteLine(binaryTree.Height());
+        Console.ReadLine();
+    }
+}
