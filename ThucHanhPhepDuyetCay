@@ -2,54 +2,54 @@ using System;
 public class Node
 {
     public int data;
-    public Node rightNode;
-    public Node leftNode;
+    public Node left;
+    public Node right;
     public Node(int value)
     {
         data = value;
-        rightNode = null;
-        leftNode = null;
+        left = null;
+        right = null;
     }
     public void Insert(int value)
     {
         if (value >= data)
         {
-            if (rightNode == null)
-                rightNode = new Node(value);
+            if (right == null)
+                right = new Node(value);
             else
-                rightNode.Insert(value);
+                right.Insert(value);
         }
         else
         {
-            if (leftNode == null)
-                leftNode = new Node(value);
+            if (left == null)
+                left = new Node(value);
             else
-                leftNode.Insert(value);
+                left.Insert(value);
         }
-    }
-    public void InOrder()
-    {
-        if (leftNode != null)
-            leftNode.InOrder();
-        Console.Write(data + " ");
-        if (rightNode != null)
-            rightNode.InOrder();
     }
     public void PreOrder()
     {
         Console.Write(data + " ");
-        if (leftNode != null)
-            leftNode.PreOrder();
-        if (rightNode != null)
-            rightNode.PreOrder();
+        if (left != null)
+            left.PreOrder();
+        if (right != null)
+            right.PreOrder();
     }
-    public void Postorder()
+    public void PostOrder()
     {
-        if (leftNode != null)
-            leftNode.Postorder();
-        if (rightNode != null)
-            rightNode.Postorder();
+        if (left != null)
+            left.PostOrder();
+        if (right != null)
+            right.PostOrder();
         Console.Write(data + " ");
+    }
+    public void InOrder()
+    {
+        if (left != null)
+            left.InOrder();
+        Console.Write(data + " ");
+        if (right != null)
+            right.InOrder();
     }
 }
 public class BinaryTree
@@ -59,27 +59,27 @@ public class BinaryTree
     {
         root = null;
     }
-    public void Insert(int data)
+    public void Insert(int value)
+    {
+        if (root == null)
+            root = new Node(value);
+        else
+            root.Insert(value);
+    }
+    public void PreOrder()
     {
         if (root != null)
-            root.Insert(data);
-        else
-            root = new Node(data);
+            root.PreOrder();
+    }
+    public void PostOrder()
+    {
+        if (root != null)
+            root.PostOrder();
     }
     public void InOrder()
     {
         if (root != null)
             root.InOrder();
-    }
-    public void Preorder()
-    {
-        if (root != null)
-            root.PreOrder();
-    }
-    public void Postorder()
-    {
-        if (root != null)
-            root.Postorder();
     }
 }
 class Program
@@ -91,13 +91,13 @@ class Program
         foreach (var i in A)
         {
             binaryTree.Insert(i);
-        }    
-        Console.WriteLine("Phep Duyet Giua");
-        binaryTree.InOrder();
-        Console.WriteLine("\nPhep Duyet Truoc");
-        binaryTree.Preorder();
+        }
+        Console.WriteLine("Phep Duyet Truoc");
+        binaryTree.PreOrder();
         Console.WriteLine("\nPhep Duyet Sau");
-        binaryTree.Postorder();
+        binaryTree.PostOrder();
+        Console.WriteLine("\nPhep Duyet Giua");
+        binaryTree.InOrder();
         Console.ReadLine();
     }
 }
