@@ -86,7 +86,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        int[] A = { 75, 57, 90, 32, 7, 44, 60, 86, 93, 99, 100 };
+        int[] A = { 50, 30, 70, 23, 35, 80, 11, 25, 31, 42, 73, 85 };
         BinaryTree binaryTree = new BinaryTree();
         foreach (var i in A)
         {
