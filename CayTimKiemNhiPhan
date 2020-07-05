@@ -48,30 +48,30 @@ public class Node
     }
     public int CountLeaf()
     {
-        if (this.left == null && this.right == null)
+        if (left == null && right == null)
             return 1;
-        int left = 0;
-        int right = 0;
-        if (this.left != null)
-            left = this.left.CountLeaf();
-        if (this.right != null)
-            right = this.right.CountLeaf();
-        return left + right;
+        int countLeft = 0;
+        int countRight = 0;
+        if (left != null)
+            countLeft = left.CountLeaf();
+        if (right != null)
+            countRight = right.CountLeaf();
+        return countLeft + countRight;
     }
     public int Height()
     {
-        if (this.left == null && this.right == null)
+        if (left == null && right == null)
             return 1;
-        int left = 0;
-        int right = 0;
-        if (this.left != null)
-            left = this.left.Height();
-        if (this.right != null)
-            right = this.right.Height();
-        if (left > right)
-            return (left + 1);
+        int countLeft = 0;
+        int countRight = 0;
+        if (left != null)
+            countLeft = left.Height();
+        if (right != null)
+            countRight = right.Height();
+        if (countLeft > countRight)
+            return (countLeft + 1);
         else
-            return (right + 1);
+            return (countRight + 1);
     }
 }
 public class BinaryTree
@@ -119,14 +119,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        int[] A = { 50, 30, 70, 23, 35, 80, 11, 25, 31, 42, 73, 85 };
+        int[] A = { 1, 2, 3, 4, 5, 6, 7, 8 };
         BinaryTree binaryTree = new BinaryTree();
         foreach (var i in A)
-        {
             binaryTree.Insert(i);
-        }
         Console.Write("Search node: ");
-        Console.WriteLine(binaryTree.Search(81));
+        Console.WriteLine(binaryTree.Search(93));
         binaryTree.Sort();
         Console.Write("\nCount leaf nodes: ");
         Console.WriteLine(binaryTree.CountLeaf());
